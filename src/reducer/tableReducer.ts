@@ -10,20 +10,22 @@ import {
 const initialState: TableState = {
   data: [],
   page: 1,
-  filter_connection: null,
-  filter_department: null
+  filter_connection: -1,
+  filter_department: '',
+  departments: [],
+  items: 0
 }
 
 export const tableReducer = (state = initialState, action: TableActionTypes): TableState => {
   switch (action.type) {
     case FILL_DATA:
-      return { ...state, data: action.data }
+      return { ...state, data: action.payload.data, departments: action.payload.departments, items: action.payload.items }
     case CHANGE_PAGE:
-      return { ...state, page: action.page }
+      return { ...state, page: action.payload.page }
     case FILTER_CONNECTION:
-      return { ...state, filter_connection: action.connection }
+      return { ...state, filter_connection: action.payload.connection, page: 1 }
     case FILTER_DEPARTMENT:
-      return { ...state, filter_department: action.department }
+      return { ...state, filter_department: action.payload.department, page: 1 }
   }
 
   return state;

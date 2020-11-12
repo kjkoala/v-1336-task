@@ -1,9 +1,6 @@
 import React from 'react'
-
-import json from '../json/data.json'
-
-
 import { Table, Tag } from 'antd';
+import { useFetchData } from '../hooks/useFetchData';
 
 const columns = [
   {
@@ -49,5 +46,10 @@ const columns = [
   }
 ];
 
-const data = json;
-export const TableBand = () => (<Table pagination={false} columns={columns} dataSource={data} />)
+
+export const TableBand = () => {
+  const { data } = useFetchData()
+  return (
+    <Table pagination={false} columns={columns} dataSource={data} />
+  )
+}

@@ -6,6 +6,7 @@ import { Provider } from 'react-redux'
 import { store } from './init/store';
 
 import 'antd/dist/antd.css';
+import './index.css';
 
 
 ReactDOM.render(

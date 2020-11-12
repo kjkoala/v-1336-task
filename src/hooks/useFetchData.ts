@@ -1,10 +1,22 @@
-import React, { useEffect } from 'react'
-import { idText } from 'typescript'
-import { useSelector, useDispatch } from 'react-redux'
+import { useSelector } from 'react-redux'
 import { AppState } from '../init/rootReducer';
 import { TableState } from '../init/types'
 
 export const useFetchData = () => {
-  const dispatch = useDispatch();
-  console.log(useSelector<AppState, TableState>(state => state.tableReducer))
+  const {
+    data,
+    departments,
+    filter_department,
+    filter_connection,
+    page,
+    items
+  } = useSelector<AppState, TableState>(state => state.tableReducer)
+  return ({
+    data,
+    departments,
+    filter_department,
+    page,
+    filter_connection,
+    items
+  })
 }
