@@ -27,6 +27,7 @@ export const Select = () => {
     <DeleteOutlined
       onClick={() => {
         setConnection(-1)
+        localStorage.removeItem('connection')
       }}
       title="Удалить этап подключения"
       style={{
@@ -45,6 +46,7 @@ export const Select = () => {
     <DeleteOutlined
       onClick={() => {
         setDeparment('')
+        localStorage.removeItem('department')
       }}
       title="Удалить выбранное подазделение"
       style={{
